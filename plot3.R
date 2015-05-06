@@ -30,7 +30,7 @@ rm(data)
 
 # Render plot #3
 png(file = "plot3.png", width = 480, height = 480)
-par(mfrow = c(1,1), mar = c(5, 4, 4, 2) + 0.1, cex = 0.65)
+par(mfrow = c(1,1), mar = c(5, 4, 4, 2) + 0.1, cex = 0.75)
 plot(analysis$DateTime, analysis$Sub_metering_1, type = "l", xlab = "", ylab = "Energy sub metering")
 points(analysis$DateTime, analysis$Sub_metering_2, type = "l", col = "red")
 points(analysis$DateTime, analysis$Sub_metering_3, type = "l", col = "blue")

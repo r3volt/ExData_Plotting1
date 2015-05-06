@@ -30,6 +30,6 @@ rm(data)
 
 # Render plot #2
 png(file = "plot2.png", width = 480, height = 480)
-par(mfrow = c(1,1), mar = c(5, 4, 4, 2) + 0.1, cex = 0.65)
+par(mfrow = c(1,1), mar = c(5, 4, 4, 2) + 0.1, cex = 0.75)
 plot(analysis$DateTime, analysis$Global_active_power, type = "l", xlab="", ylab="Global Active Power (kilowatts)")
 dev.off()
