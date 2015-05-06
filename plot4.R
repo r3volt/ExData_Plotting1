@@ -23,14 +23,15 @@ data$DateTime <- strptime(paste(data$Date, data$Time), "%d/%m/%Y %H:%M:%S", tz =
 # POSIXlt$year returns years since 1900
 # POSIXlt$mon returns months in range 0-11
 # POSIXlt$mday returns day in range 1-31
-analysis<-data[data$DateTime$year+1900 == 2007 & data$DateTime$mon + 1 == 2 & (data$DateTime$mday == 1 | data$DateTime$mday == 2),]
+analysis<-data[data$DateTime$year+1900 == 2007 & data$DateTime$mon + 1 == 2 & (data$DateTime$mday == 1 | data$DateTime$mday == 2), ]
 
 # Remove the large data set from workspace.
 rm(data)
 
 # Render plot #4
+png(file = "plot4.png", width = 480, height = 480)
 # Plot Setup
-par(mfrow = c(2,2), mar = c(4,4,2,2), cex = 0.5)
+par(mfrow = c(2, 2), mar = c(6, 4, 1, 1), cex = 0.65)
 # Plot #4a
 plot(analysis$DateTime, analysis$Global_active_power , type = "l", xlab = "", ylab="Global Active Power")
 # Plot #4b
@@ -42,5 +43,4 @@ points(analysis$DateTime, analysis$Sub_metering_3, type = "l", col = "blue")
 legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), bty = "n", lwd = 1, pch = NA)
 # Plot #4d
 plot(analysis$DateTime, analysis$Global_reactive_power, type = "l", xlab = "datetime", ylab = "Global_reactive_power")
-
-
+dev.off()
